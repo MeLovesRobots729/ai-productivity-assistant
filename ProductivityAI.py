@@ -10,10 +10,12 @@ from typing import Dict
 from datetime import datetime,timedelta
 from dotenv import load_dotenv
 
-st.set_page_config(page_title="AI Productivity Assistant", layout="wide")
 
 load_dotenv()  # Load .env file
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+st.set_page_config(page_title="AI Productivity Assistant", layout="wide")
+
 
 @dataclass
 class Task:
@@ -111,7 +113,7 @@ class ProductivityAssistant:
             Each task should be distributed evenly over the {days} days, considering the {available_hours} available hours per day.
             Ensure no task is repeated on the same day unless necessary, and the total time does not exceed the available hours per day.
             Start each day at 08:00 AM
-            
+
             Start date: {start_date.strftime('%Y-%m-%d')}
             
             Return JSON format:
